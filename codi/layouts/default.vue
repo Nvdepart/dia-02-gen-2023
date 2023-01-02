@@ -6,6 +6,7 @@
         <Nuxt />
       </v-container>
     </v-main>
+    <NewsLetters />
     <Footer />
   </v-app>
 </template>

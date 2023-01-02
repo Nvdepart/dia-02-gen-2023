@@ -1,21 +1,40 @@
 <template>
     <div>
-        <v-app-bar>
-            <v-tool-bar>
-                <v-icon>mdi-atlassian</v-icon>
-                Atlas-Expo
-            </v-tool-bar>
+        <v-app-bar
+            color="surface"
+            height="80" 
+            class="el" 
+            app 
+            :style="{padding : $vuetify.breakpoint.modAndUp ? '0px 100px' : '',}"
+        >
+            <v-toolbar-title
+                @click="$router.push('/')" 
+                class="text-md-h5 font-weight-bold pointer"
+                color="yellow"    
+                >
+                <v-icon size="30" color="blue">mdi-atlassian</v-icon>
+                tlas-Expo
+            </v-toolbar-title>
             <v-spacer />
             <v-btn icon>
-                <v-icon>mdi-store-outline</v-icon>
+                <v-icon size="30" color="yellow">mdi-store-outline</v-icon>
             </v-btn>
             <v-btn icon>
-                <v-icon>mdi-cart-outline</v-icon>
+                <v-icon size="30" color="green">mdi-cart-outline</v-icon>
             </v-btn>
-            <v-divider vertical />
-            <v-btn icon>
-                <v-icon>mdi-brightness-4</v-icon>
+            <v-divider vertical class="mx-md-5 mx-2"/>
+            <v-btn @click="toggleTheme" icon>
+                <v-icon size="30" color="red">mdi-brightness-4</v-icon>
             </v-btn>
         </v-app-bar>
     </div>
 </template>
+<script>
+export default {
+    methods: {
+        toggleTheme() {
+        this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+        },
+  },
+}
+</script>
