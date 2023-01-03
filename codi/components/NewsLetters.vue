@@ -7,6 +7,7 @@
             <v-text-field
                 label="Email"
                 type="email"
+                suffix="@gmail.com"
                 outlined
                 v-model="email"
             ></v-text-field>

@@ -3,15 +3,20 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
+  // For netlify
+  generate: {
+    fallback: true
+  },
 
+  // Target: https://go.nuxtjs.dev/config-target
+  
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - NewCommerce',
     title: 'NewCommerce',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Free eCommerce Site Built With NuxtJS ❤' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
@@ -20,7 +25,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
+  css: ['~/assets/main.css', '@sweetalert2/theme-material-ui'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -40,10 +45,17 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxt/content',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    'vue-sweetalert2/nuxt/no-css',
+    'nuxt-webfontloader',
   ],
-
+  webfontloader: {
+    google: {
+      families: ["DM+Sans:wght@400;500;700&display=swap"],
+    },
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
@@ -56,15 +68,25 @@ export default {
       lang: 'en'
     }
   },
-
+ // Content module configuration: https://go.nuxtjs.dev/config-content
+ content: {},
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    treeShake: true,
+    defaultassets: {
+      font:{
+        family:'DM Sans',
+        size: 15,
+      },
+    },
     theme: {
-      dark: false,
+      light: true,
       themes: {
-        dark: {
+        light: {
           primary: colors.blue.darken2,
+          bg:'#ffffff',
+          surface:'#ffffff',
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
@@ -72,8 +94,10 @@ export default {
           error: colors.deepOrange.accent4,
           success: colors.green.accent3
         },
-        light: {
+        dark: {
           primary: colors.blue.darken2,
+          bg:'#0a0514',
+          surface:'#130a24',
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,

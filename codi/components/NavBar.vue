@@ -5,12 +5,11 @@
             height="80" 
             class="el" 
             app 
-            :style="{padding : $vuetify.breakpoint.modAndUp ? '0px 100px' : '',}"
+            :style="{padding : $vuetify.breakpoint.mdAndUp ? '0px 100px' : ''}"
         >
             <v-toolbar-title
                 @click="$router.push('/')" 
-                class="text-md-h5 font-weight-bold pointer"
-                color="yellow"    
+                class="text-md-h5 font-weight-bold pointer"   
                 >
                 <v-icon size="30" color="blue">mdi-atlassian</v-icon>
                 tlas-Expo

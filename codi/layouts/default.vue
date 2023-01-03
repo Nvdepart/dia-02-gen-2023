@@ -1,12 +1,17 @@
 <template>
-  <v-app>
-    <NavBar />
+  <v-app dark 
+    :style="{backgroundColor: $vuetify.theme.dark ? '#0a0514' : 'white'}">
+    
     <v-main>
       <v-container>
         <Nuxt />
       </v-container>
     </v-main>
-    <NewsLetters />
-    <Footer />
+    
   </v-app>
 </template>
+<script>
+export default {
+
+};
+</script>
